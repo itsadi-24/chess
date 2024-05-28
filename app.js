@@ -58,12 +58,12 @@ io.on('connection', (uniquesocket) => {
         currentPlayer = chess.turn(move);
         io.emit('move', move);
         io.emit('boardState', chess.fen());
-        if (chess.in_checkmate()) {
-          io.emit('message', 'Checkmate!');
-          io.emit('gameover');
-        } else if (chess.in_check()) {
-          io.emit('message', 'Check!');
-        }
+        // if (chess.in_checkmate()) {
+        //   io.emit('message', 'Checkmate!');
+        //   io.emit('gameover');
+        // } else if (chess.in_check()) {
+        //   io.emit('message', 'Check!');
+        // }
       } else {
         console.log('Inavlid move :', move);
         uniquesocket.emit('Invalid move', move);
